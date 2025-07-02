@@ -5,6 +5,13 @@ description = "For cybersecurity students ONLY. Girls NOT allowed."
 language = "en"
 src = "src"
 
+# Allow bash commands
+[preprocessor.ocirun]
+[[preprocessor.ocirun.langs]]
+name = "bash"
+image = "alpine/git"
+command = ["bash", "source"]
+
 [output.html]
 smart-punctuation = true
 mathjax-support = true
@@ -12,11 +19,11 @@ site-url = "/linuxliteracy/"
 git-repository-url = "https://github.com/Laufeynumber1fan/linuxliteracy/tree/gh-pages"
 hash-files = true
 
-#This is enabled by default.
+# This is enabled by default
 [output.html.search]
 enable = false
 
-#Enable code blocks that start with "codelang,editable" to be editable by user.
+# Enable code blocks that start with "codelang,editable" to be editable by user
 [output.html.playground]
 editable = true
 

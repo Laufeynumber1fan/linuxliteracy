@@ -1,4 +1,4 @@
 # Chapter 1
-```bash,editable,mdbook-runnable
+```bash,ocirun,editable
 cat chapter_2.md
 ```
