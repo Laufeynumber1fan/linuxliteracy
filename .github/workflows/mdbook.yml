@@ -1,7 +1,13 @@
-# Sample workflow for building and deploying a mdBook site to GitHub Pages
+# My cool workflow
 #
-# To get started with mdBook see: https://rust-lang.github.io/mdBook/index.html
+# Will:
+#   - install rust
+#   - install mdbook
+#   - install mdbook-ocirun
+#   - deploy git-pages site
 #
+# https://laufeynumber1fan.github.io/linuxliteracy/
+
 name: Deploy mdBook site to Pages
 
 on:
@@ -30,12 +36,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@master
+      - name: Install Rust
+        run: |
+          rustup set profile minimal
+          rustup toolchain install stable
+          rustup default stable
       - uses: actions/checkout@v4
-      - name: Install mdBook
+      - name: Install LATEST mdBook
         run: |
           curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
           rustup update
           cargo install --git https://github.com/rust-lang/mdBook.git mdbook
+      # Allow bash shell commands
+      # https://github.com/FauconFan/mdbook-cmdrun?tab=readme-ov-file
+      - name: Install mdbook-ocirun
+        run: |
+          cargo install mdbook-ocirun
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -47,6 +64,7 @@ jobs:
           path: ./book
 
   # Deployment job
+  # Make sure to delete default pages workflow, dont want to deploy the same website twice
   deploy:
     environment:
       name: github-pages
