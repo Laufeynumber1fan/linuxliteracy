@@ -30,12 +30,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@master
+      - name: Install Rust
+        run: |
+          rustup set profile minimal
+          rustup toolchain install stable
+          rustup default stable
       - uses: actions/checkout@v4
-      - name: Install mdBook
+      - name: Install LATEST mdBook
         run: |
           curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
           rustup update
           cargo install --git https://github.com/rust-lang/mdBook.git mdbook
+      # Allow bash shell commands
+      # https://github.com/FauconFan/mdbook-cmdrun?tab=readme-ov-file
+      - name: Install mdbook-cmdrun
+        run: |
+          cargo install mdbook-cmdrun
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
