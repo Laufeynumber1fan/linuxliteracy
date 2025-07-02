@@ -1,4 +1,14 @@
 # Chapter 1
 ```bash,ocirun,editable
-cat chapter_2.md
+ls *
+ls ..
+ls -l
+ls /
+```
+
+```rust,editable
+fn main() {
+    let number = 5;
+    print!("{}", number);
+}
 ```
