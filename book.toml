@@ -9,7 +9,7 @@ src = "src"
 [preprocessor.ocirun]
 [[preprocessor.ocirun.langs]]
 name = "bash"
-image = "alpine/git"
+image = "bash"
 command = ["bash", "source"]
 
 [output.html]
