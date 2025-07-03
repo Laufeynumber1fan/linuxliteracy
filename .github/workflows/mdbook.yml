@@ -3,7 +3,6 @@
 # Will:
 #   - install rust
 #   - install mdbook
-#   - install mdbook-ocirun
 #   - deploy git-pages site
 #
 # https://laufeynumber1fan.github.io/linuxliteracy/
@@ -48,11 +47,6 @@ jobs:
           curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
           rustup update
           cargo install --git https://github.com/rust-lang/mdBook.git mdbook
-      # Allow bash shell commands
-      # https://github.com/FauconFan/mdbook-cmdrun?tab=readme-ov-file
-      - name: Install mdbook-ocirun
-        run: |
-          cargo install mdbook-ocirun
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
