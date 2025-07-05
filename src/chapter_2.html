@@ -2,7 +2,7 @@
     <script>
 	    async function runBash() {
             const cmd = document.getElementById('cmd').value;
-            const response = await fetch('https://github.com/wasmerio/wasmer/raw/refs/heads/main/tests/integration/cli/tests/wasm/bash.wasm');
+            const response = await fetch('bash.wasm');
             const binary = await response.arrayBuffer();
             const stdout = [];
             const wasi = new WASI({
