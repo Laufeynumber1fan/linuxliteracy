@@ -1,0 +1,28 @@
+[book]
+<<<<<<< HEAD
+authors = ["Laufeynumber1fan"]
+language = "en"
+src = "src"
+title = "linuxliteracy"
+=======
+title = "linuxliteracy"
+authors = ["laufeynumber1fan"]
+description = "Fan project about linux tools."
+language = "en"
+src = "src"
+
+[output.html]
+smart-punctuation = true
+input-404 = "404.md"
+
+# mdbook-alerts
+[preprocessor.alerts]
+
+# remove print symbol on the top right corner
+[output.html.print]
+enable = false
+
+[output.html.search]
+enable = true
+expand = true
+>>>>>>> 74670c6 (not helpful commit message)
